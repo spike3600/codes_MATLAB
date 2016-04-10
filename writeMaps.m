@@ -25,6 +25,10 @@ function [] = writeMaps(map,binaryMask,structPath,resultsPath,options)
 %   options.writeSmoothedNormalised: a bolean variable. If set to 1,
 %   the native space maps and mask would be warped,smoothed, masked and
 %   then saved as image files.
+%
+%   options.fwhm: a triplet indicating the size of the smoothing Guassian
+%   kernel.
+% 
 % NOTE THAT YOU MUST HAVE ADDED THE SPM PATH PRIOR TO RUNNING THIS
 % FUNCTION.
 
