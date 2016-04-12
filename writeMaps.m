@@ -49,7 +49,7 @@ V = spm_vol(readFile);
 
 % write the native-space masked map to disk
 mapMetadataStruct_nS = V;
-mapMetadataStruct_nS.fname = fullfile(resultsPath,[options.analysisName,'_nativeSpaceMap.img']);
+mapMetadataStruct_nS.fname = fullfile(resultsPath,[options.analysisName,'_nativeSpaceMap.nii']);
 mapMetadataStruct_nS.descrip =  'map';
 mapMetadataStruct_nS.dim = size(map);
 maskMetadataStruct_nS = V;
@@ -61,7 +61,7 @@ if options.writeNative
     fprintf('... done\n')
     
     % write the native space binary mask to disk
-    maskMetadataStruct_nS.fname = fullfile(resultsPath,[options.analysisName,'_nativeSpaceBinaryMask.img']);
+    maskMetadataStruct_nS.fname = fullfile(resultsPath,[options.analysisName,'_nativeSpaceBinaryMask.nii']);
     maskMetadataStruct_nS.descrip =  'Native space mask';
     maskMetadataStruct_nS.dim = size(binaryMask);
     
@@ -99,7 +99,7 @@ if options.writeNormalised
     % Fix the normalisation of the mask
     maskMetadataStruct_sS = spm_vol(fullfile(warpedPath_map, [warpedFile_map warpedExt_map]));
     %     maskMetadataStruct_sS.fname = fullfile(userOptions.rootPath, 'Maps', [userOptions.analysisName '_commonSpaceMask_' maskName '_' modelName '_' subject '.img']);
-    maskMetadataStruct_sS.fname = fullfile(resultsPath,[options.analysisName '_commonSpaceMask.img']);
+    maskMetadataStruct_sS.fname = fullfile(resultsPath,[options.analysisName '_commonSpaceMask.nii']);
     maskMetadataStruct_sS.descrip =  'Common space mask';
     maskMetadataStruct_sS.dim = size(mask_sS);
     
@@ -143,7 +143,7 @@ if options.writeSmoothedNormalised
     
     % Write it back to disk
     maskedDataMetadataStruct_sS = smoothedDataMetadataStruct;
-    maskedDataMetadataStruct_sS.fname = fullfile(resultsPath,['msw' options.analysisName '.img']); % 'msw' for 'masked, smoothed, warped'
+    maskedDataMetadataStruct_sS.fname = fullfile(resultsPath,['msw' options.analysisName '.nii']); % 'msw' for 'masked, smoothed, warped'
     maskedDataMetadataStruct_sS.descrip =  'Masked smoothed normalised data';
     maskedDataMetadataStruct_sS.dim = size(maskedData);
     
