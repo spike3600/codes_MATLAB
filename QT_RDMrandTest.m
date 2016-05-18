@@ -1,3 +1,4 @@
+% the demo script for the function called conditionLabelRandomizationTests4RDMs.m
 clear;clc
 %% control params
 nCond = 12;
